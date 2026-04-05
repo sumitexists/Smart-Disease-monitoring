@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{% static 'doctor/css/auth.css' %}" />
+  <link rel="stylesheet" href="{% static 'doctor/css/register.css' %}" />
 </head>
 <body>
   <div class="card">
@@ -26,8 +27,11 @@
     </div>
     {% endif %}
 
-    <form method="POST" action="{% url 'register' %}">
+    <form method="POST" action="{% url 'register' %}" id="register-form">
       {% csrf_token %}
+
+      <!-- ── Account Info ───────────────────────────── -->
+      <div class="section-label">Account Info</div>
 
       <label for="username">Username</label>
       <div class="input-group">
@@ -89,6 +93,49 @@
         />
       </div>
 
+      <!-- ── Location (NCR) ─────────────────────────── -->
+      <div class="section-label">📍 Your Location (NCR)</div>
+
+      <label for="pincode">Pincode</label>
+      <div class="input-group">
+        <span class="input-icon">📮</span>
+        <input
+          type="text"
+          id="reg-pincode"
+          name="pincode"
+          placeholder="e.g. 110016"
+          maxlength="6"
+          inputmode="numeric"
+          value="{{ request.POST.pincode }}"
+          autocomplete="postal-code"
+          required
+        />
+      </div>
+      <div class="pincode-status" id="reg-pincode-status"></div>
+
+      <!-- Unavailable banner -->
+      <div class="unavailable-banner" id="unavailable-banner">
+        <span class="banner-icon">🚫</span>
+        <span>
+          This service is <strong>not available</strong> in your location yet.
+          We will be available soon — stay tuned!
+        </span>
+      </div>
+
+      <!-- Area dropdown (shown when pincode is valid) -->
+      <div id="area-wrapper">
+        <label for="reg-area">Area</label>
+        <div class="input-group reg-area-select-wrapper">
+            <select id="reg-area" name="area" class="form-control reg-area-select"
+                  required>
+            <option value="">— Select area —</option>
+          </select>
+        </div>
+        <p class="form-note">Areas are auto-populated based on your pincode.</p>
+      </div>
+
+      <br />
+
       <button type="submit" class="btn btn-primary" id="register-btn">Create Account</button>
     </form>
 
@@ -102,6 +149,11 @@
 
   </div>
 
-  <script src="{% static 'doctor/js/register.js' %}"></script>
+  <!-- Pass JSON URL via data attribute, just like report.html -->
+  <script
+    id="register-script"
+    src="{% static 'doctor/js/register.js' %}"
+    data-json-url="{% static 'doctor/data/ncr_pincodes.json' %}"
+  ></script>
 </body>
 </html>

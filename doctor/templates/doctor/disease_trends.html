@@ -1,0 +1,117 @@
+{% extends "doctor/layout.html" %}
+{% load static %}
+
+{% block title %}Disease Trends - Smart Disease Monitor{% endblock %}
+{% block page_title %}📈 Disease Trends{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'doctor/css/disease_trends.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section class="trends-layout">
+  <article class="trends-controls">
+    <div class="control-group">
+      <label class="control-label">Time Range</label>
+      <div class="button-group">
+        <a href="?range=7" class="btn-filter {% if time_range == '7' %}active{% endif %}">Last 7 Days</a>
+        <a href="?range=14" class="btn-filter {% if time_range == '14' %}active{% endif %}">Last 14 Days</a>
+        <a href="?range=30" class="btn-filter {% if time_range == '30' %}active{% endif %}">Last 30 Days</a>
+      </div>
+    </div>
+  </article>
+
+  <div class="metrics-grid">
+    <article class="metric-card">
+      <div class="metric-label">Total Reports</div>
+      <div class="metric-value" id="total-reports">0</div>
+      <p class="metric-note">Symptom reports in selected period</p>
+    </article>
+
+    <article class="metric-card">
+      <div class="metric-label">Diseases Tracked</div>
+      <div class="metric-value">{{ disease_list|length }}</div>
+      <p class="metric-note">Unique diseases in system</p>
+    </article>
+
+    <article class="metric-card">
+      <div class="metric-label">Most Common</div>
+      <div class="metric-value" id="top-disease">-</div>
+      <p class="metric-note">Disease with most cases</p>
+    </article>
+  </div>
+
+  <div class="charts-grid">
+    <article class="chart-card">
+      <div class="card-header">
+        <div class="card-title">📊 Disease Trend Over Time</div>
+        <div class="card-subtitle">Daily case counts for tracked diseases</div>
+      </div>
+      <canvas id="disease-trend-main" class="chart-canvas"></canvas>
+    </article>
+  </div>
+
+  <div class="charts-grid">
+    <article class="chart-card">
+      <div class="card-header">
+        <div class="card-title">🏆 Top Diseases (Last 7 Days)</div>
+        <div class="card-subtitle">Diseases with highest number of cases</div>
+      </div>
+      <canvas id="top-diseases-chart" class="chart-canvas"></canvas>
+    </article>
+
+    <article class="chart-card">
+      <div class="card-header">
+        <div class="card-title">🏥 Affected Areas (Last 7 Days)</div>
+        <div class="card-subtitle">Locations with most reports</div>
+      </div>
+      <canvas id="areas-chart" class="chart-canvas"></canvas>
+    </article>
+  </div>
+
+  <div class="charts-grid">
+    <article class="chart-card">
+      <div class="card-header">
+        <div class="card-title">⚠️ Severity Distribution (Last 7 Days)</div>
+        <div class="card-subtitle">Case severity breakdown</div>
+      </div>
+      <canvas id="severity-chart" class="chart-canvas"></canvas>
+    </article>
+
+    <article class="chart-card">
+      <div class="card-header">
+        <div class="card-title">📋 Disease Details Table</div>
+        <div class="card-subtitle">Complete disease statistics</div>
+      </div>
+      <div class="table-container">
+        <table class="diseases-table">
+          <thead>
+            <tr>
+              <th>Disease</th>
+              <th>Total Cases</th>
+              <th>Trend</th>
+            </tr>
+          </thead>
+          <tbody id="diseases-table-body">
+            <tr><td colspan="3" style="text-align: center; padding: 20px; color: var(--text-muted);">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+{{ trend_labels|json_script:"trend-labels" }}
+{{ disease_trend_data|json_script:"disease-trend-data" }}
+{{ disease_list|json_script:"disease-list" }}
+{{ top_disease_names|json_script:"top-disease-names" }}
+{{ top_disease_counts|json_script:"top-disease-counts" }}
+{{ area_labels|json_script:"area-labels" }}
+{{ area_counts|json_script:"area-counts" }}
+{{ severity_labels|json_script:"severity-labels" }}
+{{ severity_counts|json_script:"severity-counts" }}
+
+<script src="{% static 'doctor/js/disease_trends.js' %}"></script>
+{% endblock %}

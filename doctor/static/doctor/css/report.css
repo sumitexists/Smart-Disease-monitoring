@@ -1,0 +1,157 @@
+/* Report page */
+.report-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .report-grid { grid-template-columns: 1fr; }
+}
+
+.chips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.symptom-chip {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.18s ease;
+}
+
+.symptom-chip:hover {
+  border-color: var(--accent-light);
+  color: var(--text-primary);
+  background: rgba(129, 140, 248, 0.08);
+}
+
+.symptom-chip.selected {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
+.symptom-chip input[type="checkbox"] {
+  display: none;
+}
+
+.chip-emoji { font-size: 1rem; }
+
+.pincode-status {
+  font-size: 0.78rem;
+  margin-top: 5px;
+  font-weight: 500;
+  min-height: 1.2em;
+}
+
+.pincode-status.ok { color: #22c55e; }
+.pincode-status.error { color: #ef4444; }
+
+#area-wrapper { display: none; }
+
+.info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.info-card h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-list {
+  list-style: none;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.info-list li span:first-child { flex-shrink: 0; }
+
+.form-note {
+  font-size: 0.77rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.severity-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.severity-option input[type="radio"] { display: none; }
+
+.severity-option label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.severity-option input[type="radio"]:checked + label {
+  border-color: var(--accent);
+  background: rgba(99, 102, 241, 0.18);
+  color: var(--accent-light);
+}
+
+.severity-option label:hover {
+  border-color: var(--accent-light);
+  color: var(--text-primary);
+}
+
+.submit-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.btn-lg {
+  padding: 12px 28px;
+  font-size: 0.92rem;
+}
+
+.report-card { margin-bottom: 20px; }
+.other-symptoms-group { margin-top: 20px; }
+.report-submit-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.instructions-card { margin-top: 16px; }

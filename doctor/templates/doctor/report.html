@@ -5,158 +5,7 @@
 {% block page_title %}📋 Report Symptoms{% endblock %}
 
 {% block extra_css %}
-<style>
-/* ── Page-specific styles ─────────────────────────── */
-.report-grid {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 24px;
-  align-items: start;
-}
-
-@media (max-width: 900px) {
-  .report-grid { grid-template-columns: 1fr; }
-}
-
-/* Symptom chips */
-.chips-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 4px;
-}
-
-.symptom-chip {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 14px;
-  border-radius: 50px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text-muted);
-  font-size: 0.84rem;
-  font-weight: 500;
-  cursor: pointer;
-  user-select: none;
-  transition: all 0.18s ease;
-}
-
-.symptom-chip:hover {
-  border-color: var(--accent-light);
-  color: var(--text-primary);
-  background: rgba(129, 140, 248, 0.08);
-}
-
-.symptom-chip.selected {
-  background: rgba(99, 102, 241, 0.2);
-  border-color: var(--accent);
-  color: var(--accent-light);
-}
-
-.symptom-chip input[type="checkbox"] {
-  display: none;
-}
-
-.chip-emoji { font-size: 1rem; }
-
-/* Pincode status */
-.pincode-status {
-  font-size: 0.78rem;
-  margin-top: 5px;
-  font-weight: 500;
-  min-height: 1.2em;
-}
-
-.pincode-status.ok    { color: #22c55e; }
-.pincode-status.error { color: #ef4444; }
-
-/* Area wrapper */
-#area-wrapper { display: none; }
-
-/* Info sidebar card */
-.info-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-}
-
-.info-card h3 {
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.info-list {
-  list-style: none;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.info-list li {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-}
-
-.info-list li span:first-child { flex-shrink: 0; }
-
-.form-note {
-  font-size: 0.77rem;
-  color: var(--text-muted);
-  margin-top: 6px;
-}
-
-.severity-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.severity-option input[type="radio"] { display: none; }
-
-.severity-option label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 50px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.03);
-  color: var(--text-muted);
-  font-size: 0.84rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.18s;
-}
-
-.severity-option input[type="radio"]:checked + label {
-  border-color: var(--accent);
-  background: rgba(99,102,241,0.18);
-  color: var(--accent-light);
-}
-
-.severity-option label:hover { border-color: var(--accent-light); color: var(--text-primary); }
-
-.submit-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 8px;
-}
-
-.btn-lg {
-  padding: 12px 28px;
-  font-size: 0.92rem;
-}
-</style>
+<link rel="stylesheet" href="{% static 'doctor/css/report.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -169,7 +18,7 @@
     <div>
 
       <!-- Symptoms -->
-      <div class="card" style="margin-bottom: 20px;">
+      <div class="card report-card">
         <div class="card-header">
           <div class="card-title">🤒 Select Your Symptoms</div>
           <div class="card-subtitle">Tick all that apply. You can also describe additional symptoms below.</div>
@@ -187,7 +36,7 @@
           {% endfor %}
         </div>
 
-        <div class="form-group" style="margin-top: 20px;">
+        <div class="form-group other-symptoms-group">
           <label class="form-label" for="other_symptoms">Additional symptoms (optional)</label>
           <textarea
             id="other_symptoms"
@@ -200,7 +49,7 @@
       </div>
 
       <!-- Severity -->
-      <div class="card" style="margin-bottom: 20px;">
+      <div class="card report-card">
         <div class="card-header">
           <div class="card-title">📊 Severity</div>
           <div class="card-subtitle">How would you rate the overall severity of your symptoms?</div>
@@ -217,7 +66,7 @@
       </div>
 
       <!-- Location -->
-      <div class="card" style="margin-bottom: 20px;">
+      <div class="card report-card">
         <div class="card-header">
           <div class="card-title">📍 Your Location (NCR)</div>
           <div class="card-subtitle">Enter your pincode to find your area in the NCR region.</div>
@@ -253,7 +102,7 @@
         <button type="submit" class="btn btn-primary btn-lg" id="submit-report-btn">
           🚀 Submit Report
         </button>
-        <span style="font-size:0.8rem; color: var(--text-muted);">
+        <span class="report-submit-note">
           Your report is anonymous and helps track disease spread.
         </span>
       </div>
@@ -273,7 +122,7 @@
         </ul>
       </div>
 
-      <div class="info-card" style="margin-top:16px;">
+      <div class="info-card instructions-card">
         <h3>📋 Instructions</h3>
         <ul class="info-list">
           <li><span>1️⃣</span><span>Select all symptoms you are currently experiencing</span></li>

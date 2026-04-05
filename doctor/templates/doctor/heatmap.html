@@ -1,0 +1,237 @@
+{% extends "doctor/layout.html" %}
+{% load static %}
+
+{% block title %}Area Heatmap - Smart Disease Monitor{% endblock %}
+{% block page_title %}🗺️ Area Heatmap{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'doctor/css/heatmap.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section class="heatmap-layout">
+  <article class="location-panel">
+    <form
+      method="GET"
+      action="{% url 'area_heatmap' %}"
+      id="heatmap-location-form"
+    >
+      <div class="location-row">
+        <div>
+          <label class="picker-label" for="heatmap-pincode">Pincode</label>
+          <input
+            class="picker-control"
+            id="heatmap-pincode"
+            name="pincode"
+            type="text"
+            inputmode="numeric"
+            maxlength="6"
+            placeholder="Enter 6-digit pincode"
+            value="{{ selected_pincode }}"
+            list="heatmap-pincode-suggestions"
+            {%
+            if
+            using_registered_area
+            %}readonly{%
+            endif
+            %}
+          />
+          <datalist id="heatmap-pincode-suggestions"></datalist>
+        </div>
+
+        <div>
+          <label class="picker-label" for="heatmap-area">Area</label>
+          <select
+            class="picker-control"
+            id="heatmap-area"
+            name="area"
+            {%
+            if
+            using_registered_area
+            %}disabled{%
+            endif
+            %}
+          >
+            <option value="">Select area</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="picker-label" for="heatmap-city">City</label>
+          <input
+            class="picker-control"
+            id="heatmap-city"
+            type="text"
+            value="{{ selected_city }}"
+            placeholder="Auto-matched from pincode"
+            readonly
+            disabled
+          />
+        </div>
+
+        <button type="submit" class="picker-btn">Update View</button>
+      </div>
+
+      {% if using_registered_area %}
+      <p class="panel-note">
+        Using your registered location:
+        <strong>{{ selected_location_summary }}</strong>.
+      </p>
+      {% elif location_required %}
+      <p class="panel-note">
+        Choose a pincode and area to view the outbreak graph for that location.
+      </p>
+      {% endif %}
+    </form>
+
+    {% if selected_location_summary and disease_labels and disease_values %}
+    <div class="charts-container">
+      <div class="chart-wrap">
+        <div class="chart-title">
+          Disease Breakdown for {{ selected_location_summary }}
+        </div>
+        <canvas
+          class="chart-canvas"
+          id="disease-bar-chart"
+          aria-label="Disease breakdown bar chart"
+        ></canvas>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-title">
+          Disease Distribution for {{ selected_location_summary }}
+        </div>
+        <canvas
+          class="chart-canvas"
+          id="disease-pie-chart"
+          aria-label="Disease distribution pie chart"
+        ></canvas>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if selected_location_summary and trend_days and disease_names_7d and trend_data %}
+    <div class="chart-wrap">
+      <div class="chart-title">
+        7-Day Disease Trend for {{ selected_location_summary }}
+      </div>
+      <canvas
+        class="chart-canvas"
+        id="disease-trend-chart"
+        aria-label="7-day disease trend chart"
+      ></canvas>
+    </div>
+    {% endif %}
+
+    {% if selected_city and city_area_labels and city_area_values %}
+    <div class="chart-wrap">
+      <div class="chart-title">Top affected areas in {{ selected_city }}</div>
+      <canvas
+        class="chart-canvas"
+        id="city-compare-chart"
+        aria-label="City area comparison graph"
+      ></canvas>
+    </div>
+    {% elif selected_city %}
+    <p class="panel-note">
+      No report data available for <strong>{{ selected_city }}</strong> yet.
+    </p>
+    {% endif %}
+  </article>
+
+  <div class="metrics-grid">
+    <article class="metric-card">
+      <div class="metric-label">Tracked Areas</div>
+      <div class="metric-value">{{ active_areas }}</div>
+      <p class="metric-note">
+        Distinct localities currently represented in data.
+      </p>
+    </article>
+
+    <article class="metric-card">
+      <div class="metric-label">Total Cases</div>
+      <div class="metric-value">{{ total_cases }}</div>
+      <p class="metric-note">
+        Aggregate user-linked reports used for intensity.
+      </p>
+    </article>
+
+    <article class="metric-card">
+      <div class="metric-label">Peak Zone Load</div>
+      <div class="metric-value">{{ max_case_count }}</div>
+      <p class="metric-note">
+        Highest area case count in the current snapshot.
+      </p>
+    </article>
+  </div>
+
+  <article class="card">
+    <div class="card-header">
+      <div class="card-title">🔥 NCR Outbreak Heatmap</div>
+      <div class="card-subtitle">
+        Darker tiles indicate higher relative load compared to the busiest area.
+      </div>
+    </div>
+
+    <div class="legend" aria-label="Heatmap legend">
+      <span class="legend-item"
+        ><span class="legend-swatch low"></span>Low</span
+      >
+      <span class="legend-item"
+        ><span class="legend-swatch medium"></span>Medium</span
+      >
+      <span class="legend-item"
+        ><span class="legend-swatch high"></span>High</span
+      >
+    </div>
+
+    {% if heatmap_rows %}
+    <div class="heatmap-grid heatmap-grid-content">
+      {% for row in heatmap_rows %}
+      <button
+        type="button"
+        class="heat-cell heat-cell-button"
+        data-heat-alpha="{{ row.heat_alpha }}"
+        data-pincode="{{ row.pincode }}"
+        data-area="{{ row.area }}"
+        data-city="{{ row.city }}"
+      >
+        <div class="cell-head">
+          <div>
+            <div class="cell-area">{{ row.area }}</div>
+            <div class="cell-pincode">{{ row.pincode }}</div>
+          </div>
+          <span class="risk-pill {{ row.risk_level }}"
+            >{{ row.risk_level|title }}</span
+          >
+        </div>
+
+        <div class="cell-city">{{ row.city }}, {{ row.district }}</div>
+        <div class="cell-cases">{{ row.case_count }} cases</div>
+      </button>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty">
+      No area data found yet. Once users with areas are added, heatmap cells
+      will appear here.
+    </p>
+    {% endif %}
+  </article>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+{{ pincode_details_map|json_script:"heatmap-pincode-map" }}
+{{ pincode_list|json_script:"heatmap-pincode-list" }}
+{{ selected_area|json_script:"selected-area" }}
+{{ selected_city|json_script:"selected-city" }}
+{{ disease_labels|json_script:"disease-labels" }}
+{{ disease_values|json_script:"disease-values" }}
+{{ trend_days|json_script:"trend-days" }}
+{{ disease_names_7d|json_script:"disease-names-7d" }}
+{{ trend_data|json_script:"trend-data" }}
+{{ city_area_labels|json_script:"city-area-labels" }}
+{{ city_area_values|json_script:"city-area-values" }}
+
+<script src="{% static 'doctor/js/heatmap.js' %}"></script>
+{% endblock %}

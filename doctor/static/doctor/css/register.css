@@ -1,0 +1,63 @@
+/* Register page location section */
+.pincode-status {
+  font-size: 0.78rem;
+  margin-top: 5px;
+  font-weight: 600;
+  min-height: 1.2em;
+}
+
+.pincode-status.ok { color: #22c55e; }
+.pincode-status.error { color: #ef4444; }
+.pincode-status.unavailable { color: #f59e0b; }
+
+#area-wrapper { display: none; }
+
+.unavailable-banner {
+  display: none;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.82rem;
+  color: #fbbf24;
+  font-weight: 500;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.unavailable-banner .banner-icon {
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.form-note {
+  font-size: 0.77rem;
+  color: #94a3b8;
+  margin-top: 6px;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  font-weight: 600;
+  margin: 18px 0 10px;
+}
+
+.reg-area-select-wrapper {
+  padding: 0;
+  overflow: hidden;
+}
+
+.reg-area-select {
+  width: 100%;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 0.9rem;
+  outline: none;
+}

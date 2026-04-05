@@ -1,11 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Hello world
-</body>
-</html>
+{% extends "doctor/layout.html" %}
+{% load static %}
+
+{% block title %}Smart Disease Monitor - Home{% endblock %}
+{% block page_title %}🏠 Smart Disease Monitor{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'doctor/css/home.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section class="home-grid">
+
+    <article class="card hero-card" id="profile">
+        <h1 class="hero-title">Community Health Snapshot</h1>
+        <p class="hero-subtitle">
+            Report symptoms, monitor potential hotspots, and help improve early outbreak visibility.
+        </p>
+
+        {% if request.user.is_authenticated %}
+            <div class="action-row">
+                <a class="btn btn-primary" href="{% url 'report_symptoms' %}">📋 Fill Symptom Form</a>
+                <a class="btn btn-muted" href="#profile">👤 Profile: {{ request.user.username }}</a>
+                <a class="btn btn-muted" href="{% url 'logout' %}">⏏ Logout</a>
+            </div>
+            <p class="quick-note">You are signed in and can submit symptom reports.</p>
+        {% else %}
+            <div class="action-row">
+                <a class="btn btn-primary" href="{% url 'register' %}">📝 Register</a>
+                <a class="btn btn-muted" href="{% url 'login' %}">🔑 Login</a>
+                <a class="btn btn-muted" href="#outbreak-locations">🗺️ Outbreak In Locations</a>
+            </div>
+            <p class="quick-note">Login is required to access the symptom form.</p>
+        {% endif %}
+    </article>
+
+    <article class="card" id="outbreak-locations">
+        <div class="card-header">
+            <div class="card-title">🗺️ Outbreak In Locations</div>
+            <div class="card-subtitle">Area-wise activity based on registered reports and users.</div>
+        </div>
+
+        {% if outbreak_locations %}
+            <table class="outbreak-table" aria-label="Outbreak locations">
+                <thead>
+                    <tr>
+                        <th>Area</th>
+                        <th>Pincode</th>
+                        <th>Cases</th>
+                        <th>Risk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in outbreak_locations %}
+                    <tr>
+                        <td>{{ row.area }}</td>
+                        <td>{{ row.pincode }}</td>
+                        <td>{{ row.user_count }}</td>
+                        <td>
+                            {% if row.user_count >= 6 %}
+                                <span class="risk-pill high">High</span>
+                            {% elif row.user_count >= 3 %}
+                                <span class="risk-pill medium">Medium</span>
+                            {% else %}
+                                <span class="risk-pill low">Low</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="empty-state">No location activity recorded yet. Once users register and submit reports, hotspots will appear here.</p>
+        {% endif %}
+    </article>
+
+</section>
+{% endblock %}

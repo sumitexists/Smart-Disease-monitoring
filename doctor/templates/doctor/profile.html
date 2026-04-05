@@ -1,0 +1,324 @@
+{% extends "doctor/layout.html" %}
+{% load static %}
+
+{% block title %}My Profile - Smart Disease Monitor{% endblock %}
+{% block page_title %}👤 My Profile{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'doctor/css/profile.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section class="profile-layout">
+  
+  {% if error %}
+  <div class="alert alert-error">
+    <span class="alert-icon">⚠️</span>
+    <span>{{ error }}</span>
+  </div>
+  {% endif %}
+
+  {% if success %}
+  <div class="alert alert-success">
+    <span class="alert-icon">✅</span>
+    <span>{{ success }}</span>
+  </div>
+  {% endif %}
+
+  <div class="profile-grid">
+    <!-- User Info Card -->
+    <article class="card profile-card">
+      <div class="card-header">
+        <div class="card-title">👤 Account Information</div>
+      </div>
+      <div class="profile-section">
+        <div class="info-group">
+          <div class="info-label">Username</div>
+          <div class="info-value">{{ user.username }}</div>
+        </div>
+        <div class="info-group">
+          <div class="info-label">Email</div>
+          <div class="info-value">{{ user.email }}</div>
+        </div>
+        <div class="info-group">
+          <div class="info-label">Member Since</div>
+          <div class="info-value">{{ user.date_joined|date:"d M Y" }}</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Location Card -->
+    <article class="card location-card">
+      <div class="card-header">
+        <div class="card-title">📍 Your Location</div>
+      </div>
+      
+      {% if current_area %}
+      <div class="location-display">
+        <div class="location-item">
+          <span class="location-label">Current Area</span>
+          <span class="location-value">{{ current_area.area }}</span>
+        </div>
+        <div class="location-item">
+          <span class="location-label">Pincode</span>
+          <span class="location-value">{{ current_area.pincode }}</span>
+        </div>
+        <div class="location-item">
+          <span class="location-label">City</span>
+          <span class="location-value">{{ current_city }}</span>
+        </div>
+      </div>
+      {% else %}
+      <div class="no-location">
+        <p style="color: var(--text-muted); text-align: center;">No location set yet</p>
+      </div>
+      {% endif %}
+
+      <button type="button" id="open-location-form-btn" class="btn btn-outline">{% if current_area %}Update Location{% else %}Set Location{% endif %}</button>
+
+      <form method="POST" action="{% url 'user_profile' %}" class="location-form{% if location_form_locked %} is-hidden{% endif %}" id="location-form">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="update_location">
+        
+        <div class="form-group">
+          <label class="form-label" for="pincode-input">Pincode</label>
+          <input
+            type="text"
+            id="pincode-input"
+            name="pincode"
+            class="form-control"
+            placeholder="Enter 6-digit pincode"
+            maxlength="6"
+            inputmode="numeric"
+            value="{{ form_pincode }}"
+            {% if location_form_locked %}disabled{% endif %}
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="area-select">Area</label>
+          <select id="area-select" name="area" class="form-control" {% if location_form_locked %}disabled{% endif %}>
+            <option value="">Select area</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="cancel-location-edit-btn" class="btn btn-outline">Cancel</button>
+          <button type="submit" id="update-location-btn" class="btn btn-primary" {% if location_form_locked %}disabled{% endif %}>Save Location</button>
+        </div>
+      </form>
+    </article>
+  </div>
+
+  <!-- Statistics Section -->
+  <div class="stats-grid">
+    <article class="stat-card">
+      <div class="stat-icon">📋</div>
+      <div class="stat-label">Total Reports</div>
+      <div class="stat-value">{{ total_reports }}</div>
+    </article>
+
+    <article class="stat-card">
+      <div class="stat-icon">🦠</div>
+      <div class="stat-label">Unique Diseases</div>
+      <div class="stat-value">{{ unique_diseases }}</div>
+    </article>
+  </div>
+
+  <!-- Disease History -->
+  <article class="card">
+    <div class="card-header">
+      <div class="card-title">🦠 Your Disease Reports</div>
+      <div class="card-subtitle">Complete history of reported diseases</div>
+    </div>
+
+    {% if disease_summary %}
+    <div class="disease-list">
+      {% for disease_name, data in disease_summary %}
+      <div class="disease-item">
+        <div class="disease-header">
+          <div class="disease-name">{{ disease_name }}</div>
+          <div class="disease-meta">
+            <span class="badge badge-count">{{ data.count }} report{{ data.count|pluralize }}</span>
+          </div>
+        </div>
+        
+        <div class="disease-details">
+          <div class="detail-group">
+            <span class="detail-label">First Reported:</span>
+            <span class="detail-value">{{ data.first_reported|date:"d M Y, g:i A" }}</span>
+          </div>
+          <div class="detail-group">
+            <span class="detail-label">Last Reported:</span>
+            <span class="detail-value">{{ data.last_reported|date:"d M Y, g:i A" }}</span>
+          </div>
+          <div class="detail-group">
+            <span class="detail-label">Severity Levels:</span>
+            <div class="severity-badges">
+              {% for severity in data.severity_levels %}
+                <span class="badge badge-severity badge-{{ severity }}">{{ severity|upper }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+      <p>You haven't reported any diseases yet.</p>
+      <a href="{% url 'report_symptoms' %}" class="btn btn-secondary">Report Now</a>
+    </div>
+    {% endif %}
+  </article>
+
+  <!-- Recent Reports -->
+  <article class="card">
+    <div class="card-header">
+      <div class="card-title">📝 Recent Reports</div>
+    </div>
+
+    {% if user_reports %}
+    <div class="reports-table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Area</th>
+            <th>Severity</th>
+            <th>Diseases</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for report in user_reports %}
+          <tr>
+            <td>{{ report.created_at|date:"d M Y, g:i A" }}</td>
+            <td>{{ report.area.area }} ({{ report.area.pincode }})</td>
+            <td>
+              <span class="badge badge-severity badge-{{ report.severity }}">
+                {{ report.severity|upper }}
+              </span>
+            </td>
+            <td>
+              <div class="disease-tags">
+                {% for disease in report.diseases.all %}
+                  <span class="tag">{{ disease.name }}</span>
+                {% empty %}
+                  <span style="color: var(--text-muted);">-</span>
+                {% endfor %}
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="empty-state">
+      <p>No reports yet. <a href="{% url 'report_symptoms' %}">Start reporting</a></p>
+    </div>
+    {% endif %}
+  </article>
+
+</section>
+{% endblock %}
+
+{% block extra_js %}
+{{ pincode_choices|json_script:"profile-pincode-map" }}
+{{ form_area|json_script:"profile-form-area" }}
+{{ form_pincode|json_script:"profile-form-pincode" }}
+<script>
+  (function() {
+    const locationForm = document.getElementById("location-form");
+    const pincodeInput = document.getElementById("pincode-input");
+    const areaSelect = document.getElementById("area-select");
+    const openBtn = document.getElementById("open-location-form-btn");
+    const cancelBtn = document.getElementById("cancel-location-edit-btn");
+    const updateBtn = document.getElementById("update-location-btn");
+    const pincodeData = JSON.parse(document.getElementById("profile-pincode-map").textContent || "{}");
+    const selectedArea = JSON.parse(document.getElementById("profile-form-area").textContent || '""');
+    const selectedPincode = JSON.parse(document.getElementById("profile-form-pincode").textContent || '""');
+
+    function setEditable(enabled) {
+      if (!pincodeInput || !areaSelect || !updateBtn) return;
+      pincodeInput.disabled = !enabled;
+      areaSelect.disabled = !enabled;
+      updateBtn.disabled = !enabled;
+      if (enabled && pincodeInput) {
+        pincodeInput.focus();
+      }
+    }
+
+    function showForm(show) {
+      if (!locationForm) return;
+      locationForm.classList.toggle("is-hidden", !show);
+    }
+
+    function populateAreas(pincode, keepArea) {
+      if (!pincode || pincode.length !== 6) {
+        areaSelect.innerHTML = '<option value="">Select area</option>';
+        return;
+      }
+
+      const details = pincodeData[pincode];
+      if (!details || !Array.isArray(details.areas)) {
+        areaSelect.innerHTML = '<option value="">No areas found</option>';
+        return;
+      }
+
+      areaSelect.innerHTML = '<option value="">Select area</option>';
+      details.areas.forEach(function(area) {
+        const opt = document.createElement("option");
+        opt.value = area;
+        opt.textContent = area;
+        if (keepArea && keepArea === area) {
+          opt.selected = true;
+        }
+        areaSelect.appendChild(opt);
+      });
+
+      if (keepArea) {
+        areaSelect.value = keepArea;
+      }
+    }
+
+    if (pincodeInput) {
+      if (selectedPincode && selectedPincode.length === 6) {
+        pincodeInput.value = selectedPincode;
+        populateAreas(selectedPincode, selectedArea);
+      }
+
+      pincodeInput.addEventListener("input", function() {
+        const value = this.value.replace(/\D/g, "").slice(0, 6);
+        this.value = value;
+        if (value.length === 6) {
+          populateAreas(value, "");
+        } else {
+          areaSelect.innerHTML = '<option value="">Select area</option>';
+        }
+      });
+    }
+
+    if (openBtn) {
+      openBtn.addEventListener("click", function() {
+        showForm(true);
+        setEditable(true);
+      });
+    }
+
+    if (cancelBtn) {
+      cancelBtn.addEventListener("click", function() {
+        showForm(false);
+        setEditable(false);
+        if (selectedPincode && selectedPincode.length === 6) {
+          pincodeInput.value = selectedPincode;
+          populateAreas(selectedPincode, selectedArea);
+        }
+      });
+    }
+
+    showForm({% if location_form_locked %}false{% else %}true{% endif %});
+    setEditable({% if location_form_locked %}false{% else %}true{% endif %});
+  })();
+</script>
+{% endblock %}
