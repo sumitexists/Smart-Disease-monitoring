@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Smart Disease Monitor{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'doctor/css/layout.css' %}" />
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<div class="app-wrapper" id="app-wrapper">
+
+  <!-- ══════════════ SIDEBAR ══════════════ -->
+  <aside class="sidebar">
+
+    <div class="sidebar-brand">
+      <span class="brand-icon">🩺</span>
+      <span class="brand-text">Disease Monitor</span>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Main navigation">
+
+      <span class="nav-section-label">Overview</span>
+
+      <a href="{% url 'home' %}" class="nav-item" data-path="/" aria-label="Dashboard">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+
+      <a href="{% url 'report_symptoms' %}" class="nav-item" data-path="/report/" aria-label="Report Symptoms">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label">Report Symptoms</span>
+      </a>
+
+      <span class="nav-section-label">Insights</span>
+
+      <a href="#" class="nav-item" data-path="/heatmap/" aria-label="Area Heatmap">
+        <span class="nav-icon">🗺️</span>
+        <span class="nav-label">Area Heatmap</span>
+      </a>
+
+      <a href="#" class="nav-item" data-path="/trends/" aria-label="Disease Trends">
+        <span class="nav-icon">📈</span>
+        <span class="nav-label">Disease Trends</span>
+      </a>
+
+      <a href="#" class="nav-item" data-path="/alerts/" aria-label="Alerts">
+        <span class="nav-icon">🔔</span>
+        <span class="nav-label">Alerts</span>
+      </a>
+
+      <span class="nav-section-label">Account</span>
+
+      <a href="#" class="nav-item" data-path="/profile/" aria-label="Profile">
+        <span class="nav-icon">👤</span>
+        <span class="nav-label">My Profile</span>
+      </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar">
+          {{ request.user.username|first|upper }}
+        </div>
+        <div class="user-info">
+          <div class="user-name">{{ request.user.username }}</div>
+          <div class="user-role">Registered User</div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ══════════════ TOPBAR ══════════════ -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+      <span class="page-title">{% block page_title %}Dashboard{% endblock %}</span>
+    </div>
+    <div class="topbar-right">
+      <a href="{% url 'logout' %}" class="topbar-btn logout-btn" id="logout-btn">
+        <span>⏏</span> Logout
+      </a>
+    </div>
+  </header>
+
+  <!-- ══════════════ MAIN CONTENT ══════════════ -->
+  <main class="main-content">
+
+    {% if messages %}
+      {% for message in messages %}
+      <div class="alert-strip {{ message.tags }}" role="alert">
+        {% if message.tags == "error" %}⚠️{% elif message.tags == "success" %}✅{% elif message.tags == "info" %}ℹ️{% else %}📢{% endif %}
+        {{ message }}
+      </div>
+      {% endfor %}
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+  </main>
+
+</div><!-- /app-wrapper -->
+
+<script src="{% static 'doctor/js/layout.js' %}"></script>
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>

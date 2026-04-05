@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register — Smart Disease Monitor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'doctor/css/auth.css' %}" />
+</head>
+<body>
+  <div class="card">
+
+    <div class="logo">
+      <span class="logo-icon">🩺</span>
+      <h1>Smart Disease Monitor</h1>
+      <p>Create your free account</p>
+    </div>
+
+    {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+      <div class="message {{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <form method="POST" action="{% url 'register' %}">
+      {% csrf_token %}
+
+      <label for="username">Username</label>
+      <div class="input-group">
+        <span class="input-icon">👤</span>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Choose a username"
+          value="{{ request.POST.username }}"
+          autocomplete="username"
+          required
+        />
+      </div>
+
+      <label for="email">Email Address</label>
+      <div class="input-group">
+        <span class="input-icon">✉️</span>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          value="{{ request.POST.email }}"
+          autocomplete="email"
+          required
+        />
+      </div>
+
+      <label for="password1">Password</label>
+      <div class="input-group">
+        <span class="input-icon">🔒</span>
+        <input
+          type="password"
+          id="password1"
+          name="password1"
+          placeholder="At least 8 characters"
+          autocomplete="new-password"
+          required
+        />
+      </div>
+      <div class="strength-bar">
+        <div class="strength-fill" id="strength-fill"></div>
+      </div>
+      <div class="strength-label" id="strength-label"></div>
+
+      <br />
+
+      <label for="password2">Confirm Password</label>
+      <div class="input-group">
+        <span class="input-icon">🔑</span>
+        <input
+          type="password"
+          id="password2"
+          name="password2"
+          placeholder="Repeat your password"
+          autocomplete="new-password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="register-btn">Create Account</button>
+    </form>
+
+    <div class="divider">or</div>
+
+    <p class="footer-text">
+      Already have an account? <a href="{% url 'login' %}">Sign in</a>
+    </p>
+
+    <p class="terms">By registering you agree to our terms of service.</p>
+
+  </div>
+
+  <script src="{% static 'doctor/js/register.js' %}"></script>
+</body>
+</html>

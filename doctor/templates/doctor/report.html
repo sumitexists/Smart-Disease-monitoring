@@ -1,0 +1,298 @@
+{% extends "doctor/layout.html" %}
+{% load static %}
+
+{% block title %}Report Symptoms — Smart Disease Monitor{% endblock %}
+{% block page_title %}📋 Report Symptoms{% endblock %}
+
+{% block extra_css %}
+<style>
+/* ── Page-specific styles ─────────────────────────── */
+.report-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .report-grid { grid-template-columns: 1fr; }
+}
+
+/* Symptom chips */
+.chips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.symptom-chip {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.18s ease;
+}
+
+.symptom-chip:hover {
+  border-color: var(--accent-light);
+  color: var(--text-primary);
+  background: rgba(129, 140, 248, 0.08);
+}
+
+.symptom-chip.selected {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
+.symptom-chip input[type="checkbox"] {
+  display: none;
+}
+
+.chip-emoji { font-size: 1rem; }
+
+/* Pincode status */
+.pincode-status {
+  font-size: 0.78rem;
+  margin-top: 5px;
+  font-weight: 500;
+  min-height: 1.2em;
+}
+
+.pincode-status.ok    { color: #22c55e; }
+.pincode-status.error { color: #ef4444; }
+
+/* Area wrapper */
+#area-wrapper { display: none; }
+
+/* Info sidebar card */
+.info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.info-card h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-list {
+  list-style: none;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.info-list li span:first-child { flex-shrink: 0; }
+
+.form-note {
+  font-size: 0.77rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.severity-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.severity-option input[type="radio"] { display: none; }
+
+.severity-option label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.severity-option input[type="radio"]:checked + label {
+  border-color: var(--accent);
+  background: rgba(99,102,241,0.18);
+  color: var(--accent-light);
+}
+
+.severity-option label:hover { border-color: var(--accent-light); color: var(--text-primary); }
+
+.submit-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.btn-lg {
+  padding: 12px 28px;
+  font-size: 0.92rem;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<form method="POST" action="{% url 'report_symptoms' %}" id="report-form" novalidate>
+  {% csrf_token %}
+
+  <div class="report-grid">
+
+    <!-- ── Left: Form ───────────────────────────────────────── -->
+    <div>
+
+      <!-- Symptoms -->
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">
+          <div class="card-title">🤒 Select Your Symptoms</div>
+          <div class="card-subtitle">Tick all that apply. You can also describe additional symptoms below.</div>
+        </div>
+
+        <div class="chips-grid" id="chips-grid">
+          {% for sym in symptoms %}
+          <div class="symptom-chip {% if sym.key in selected_symptoms %}selected{% endif %}" tabindex="0"
+               role="checkbox" aria-checked="{% if sym.key in selected_symptoms %}true{% else %}false{% endif %}">
+            <span class="chip-emoji">{{ sym.emoji }}</span>
+            <span>{{ sym.label }}</span>
+            <input type="checkbox" name="symptoms" value="{{ sym.key }}"
+              {% if sym.key in selected_symptoms %}checked{% endif %} />
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="form-group" style="margin-top: 20px;">
+          <label class="form-label" for="other_symptoms">Additional symptoms (optional)</label>
+          <textarea
+            id="other_symptoms"
+            name="other_symptoms"
+            rows="3"
+            class="form-control"
+            placeholder="Describe any other symptoms you are experiencing…"
+          >{{ request.POST.other_symptoms }}</textarea>
+        </div>
+      </div>
+
+      <!-- Severity -->
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">
+          <div class="card-title">📊 Severity</div>
+          <div class="card-subtitle">How would you rate the overall severity of your symptoms?</div>
+        </div>
+        <div class="severity-row">
+          {% for sev in severities %}
+          <div class="severity-option">
+            <input type="radio" name="severity" id="sev_{{ sev.value }}" value="{{ sev.value }}"
+              {% if sev.value == request.POST.severity or forloop.first %}checked{% endif %} />
+            <label for="sev_{{ sev.value }}">{{ sev.emoji }} {{ sev.label }}</label>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header">
+          <div class="card-title">📍 Your Location (NCR)</div>
+          <div class="card-subtitle">Enter your pincode to find your area in the NCR region.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pincode">Pincode</label>
+          <input
+            type="text"
+            id="pincode"
+            name="pincode"
+            class="form-control"
+            placeholder="e.g. 110016"
+            maxlength="6"
+            inputmode="numeric"
+            value="{{ request.POST.pincode }}"
+            autocomplete="postal-code"
+          />
+          <div class="pincode-status" id="pincode-status"></div>
+        </div>
+
+        <div class="form-group" id="area-wrapper">
+          <label class="form-label" for="area">Area</label>
+          <select id="area" name="area" class="form-control" required>
+            <option value="">— Select area —</option>
+          </select>
+          <p class="form-note">Areas are auto-populated based on your pincode.</p>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-row">
+        <button type="submit" class="btn btn-primary btn-lg" id="submit-report-btn">
+          🚀 Submit Report
+        </button>
+        <span style="font-size:0.8rem; color: var(--text-muted);">
+          Your report is anonymous and helps track disease spread.
+        </span>
+      </div>
+
+    </div><!-- /left -->
+
+    <!-- ── Right: Info sidebar ────────────────────────────── -->
+    <aside>
+      <div class="info-card">
+        <h3>ℹ️ Why Report?</h3>
+        <ul class="info-list">
+          <li><span>📍</span><span>Helps identify disease hotspots in your area</span></li>
+          <li><span>📈</span><span>Contributes to real-time outbreak tracking</span></li>
+          <li><span>🏥</span><span>Enables early alerts for healthcare workers</span></li>
+          <li><span>🛡️</span><span>Reports are anonymous and secure</span></li>
+          <li><span>🕐</span><span>Takes less than 2 minutes to complete</span></li>
+        </ul>
+      </div>
+
+      <div class="info-card" style="margin-top:16px;">
+        <h3>📋 Instructions</h3>
+        <ul class="info-list">
+          <li><span>1️⃣</span><span>Select all symptoms you are currently experiencing</span></li>
+          <li><span>2️⃣</span><span>Rate the overall severity</span></li>
+          <li><span>3️⃣</span><span>Enter your 6-digit NCR pincode</span></li>
+          <li><span>4️⃣</span><span>Choose your locality from the dropdown</span></li>
+          <li><span>5️⃣</span><span>Click "Submit Report"</span></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</form>
+{% endblock %}
+
+{% block extra_js %}
+<script
+  id="report-script"
+  src="{% static 'doctor/js/report.js' %}"
+  data-json-url="{% static 'doctor/data/ncr_pincodes.json' %}">
+</script>
+{% endblock %}

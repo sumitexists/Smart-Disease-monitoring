@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Smart Disease Monitor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'doctor/css/auth.css' %}" />
+</head>
+<body>
+  <div class="card">
+
+    <div class="logo">
+      <span class="logo-icon">🩺</span>
+      <h1>Smart Disease Monitor</h1>
+      <p>Sign in to your account</p>
+    </div>
+
+    {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+      <div class="message {{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+
+      <label for="username">Username</label>
+      <div class="input-group">
+        <span class="input-icon">👤</span>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter your username"
+          value="{{ request.POST.username }}"
+          autocomplete="username"
+          required
+        />
+      </div>
+
+      <label for="password">Password</label>
+      <div class="input-group">
+        <span class="input-icon">🔒</span>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="login-btn">Sign In</button>
+    </form>
+
+    <div class="divider">or</div>
+
+    <p class="footer-text">
+      Don't have an account? <a href="{% url 'register' %}">Create one</a>
+    </p>
+
+  </div>
+</body>
+</html>

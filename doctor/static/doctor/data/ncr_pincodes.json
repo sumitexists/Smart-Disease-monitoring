@@ -1,0 +1,1299 @@
+{
+  "comment": "NCR Pincode data sourced from India Post (pincode.net.in). Areas = actual post office localities under each pincode.",
+
+  "110001": {
+    "city": "Central Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Baroda House", "Bengali Market", "Bhagat Singh Market", "Connaught Place",
+      "Constitution House", "Election Commission", "Janpath", "Krishi Bhawan",
+      "Lady Hardinge Medical College", "North Avenue", "Parliament House",
+      "Patiala House", "Pragati Maidan", "Rail Bhawan", "Sansad Marg",
+      "Secretariat North", "Shastri Bhawan", "Supreme Court"
+    ]
+  },
+
+  "110002": {
+    "city": "Central Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Daryaganj", "Indraprastha", "Kamla Market", "Mata Sundari Road",
+      "Shankar Market", "Subzi Mandi", "Turkman Gate"
+    ]
+  },
+
+  "110003": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Lodi Road", "Lodi Colony", "Lodi Estate", "Golf Links",
+      "Subramania Bharati Marg", "Rajendra Prasad Road"
+    ]
+  },
+
+  "110005": {
+    "city": "Central Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Anand Parbat", "Anand Parbat Industrial Area", "Bank Street",
+      "Desh Bandhu Gupta Road", "Guru Gobind Singh Marg", "Karol Bagh",
+      "Master Prithvi Nath Marg", "Sat Nagar"
+    ]
+  },
+
+  "110006": {
+    "city": "North Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Baratooti", "Chandni Chowk", "Chawri Bazar", "Dareeba",
+      "Delhi GPO", "Delhi Sadar Bazar", "Hauz Qazi", "Jama Masjid", "Khari Baoli"
+    ]
+  },
+
+  "110007": {
+    "city": "North Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Civil Lines", "Alipur Road", "Delhi University", "Kingsway Camp",
+      "Timarpur", "Vijay Nagar", "GTB Nagar"
+    ]
+  },
+
+  "110008": {
+    "city": "Central Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Patel Nagar East", "Patel Nagar West", "New Patel Nagar",
+      "Rajendra Place", "Ranjit Nagar"
+    ]
+  },
+
+  "110009": {
+    "city": "North Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Shastri Nagar", "Inderlok", "Pratap Nagar", "Inder Enclave"
+    ]
+  },
+
+  "110010": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Lajpat Nagar I", "Lajpat Nagar II", "Lajpat Nagar III", "Lajpat Nagar IV",
+      "Mool Chand", "Andrews Ganj"
+    ]
+  },
+
+  "110011": {
+    "city": "New Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Safdarjung", "Safdarjung Airport", "Safdarjung Enclave",
+      "Moti Bagh I", "Moti Bagh II"
+    ]
+  },
+
+  "110012": {
+    "city": "New Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Vasant Vihar", "Shanti Niketan", "Westend Colony"
+    ]
+  },
+
+  "110013": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Kalkaji", "Govindpuri", "Tughlakabad Extension",
+      "Nehru Place", "Chittranjan Park"
+    ]
+  },
+
+  "110014": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Defence Colony", "Kotla Mubarakpur", "Lajpat Nagar"
+    ]
+  },
+
+  "110015": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Ramesh Nagar", "Moti Nagar", "Bali Nagar",
+      "Kirti Nagar", "Ashok Park Main"
+    ]
+  },
+
+  "110016": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Hauz Khas", "Green Park", "Green Park Extension",
+      "IIT Delhi", "Aurobindo Marg", "SDA Market", "Safdarjung Development Area"
+    ]
+  },
+
+  "110017": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Malviya Nagar", "Begumpur", "Khirki Extension",
+      "Sheikh Sarai Phase I", "Sheikh Sarai Phase II"
+    ]
+  },
+
+  "110018": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Janakpuri A Block", "Janakpuri B Block", "Janakpuri C Block",
+      "Janakpuri D Block", "Uttam Nagar East", "Raja Garden"
+    ]
+  },
+
+  "110019": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Kalkaji Extension", "Pushp Vihar", "Saket", "Neb Sarai"
+    ]
+  },
+
+  "110020": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Mehrauli", "Lado Sarai", "Said-ul-Ajaib", "Kishangarh"
+    ]
+  },
+
+  "110021": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Dwarka Sector 1", "Dwarka Sector 2", "Dwarka Sector 3",
+      "Dwarka Sector 4", "Dwarka Sector 5"
+    ]
+  },
+
+  "110022": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Vasant Kunj A Block", "Vasant Kunj B Block", "Vasant Kunj C Block",
+      "Vasant Kunj D Block", "Vasant Kunj Pocket 1", "Vasant Kunj Pocket 2",
+      "Nelson Mandela Marg"
+    ]
+  },
+
+  "110023": {
+    "city": "New Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Sarojini Nagar", "Nauroji Nagar", "Netaji Nagar", "Vinay Marg"
+    ]
+  },
+
+  "110024": {
+    "city": "South East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Jangpura", "Bhogal", "Nizamuddin East", "Nizamuddin West",
+      "Hazrat Nizamuddin Colony"
+    ]
+  },
+
+  "110025": {
+    "city": "South East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Okhla Phase I", "Okhla Phase II", "Okhla Phase III",
+      "Jamia Nagar", "Abul Fazal Enclave", "Batla House"
+    ]
+  },
+
+  "110026": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Najafgarh", "Ujwa", "Dhansa", "Chhawla"
+    ]
+  },
+
+  "110027": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Vikaspuri A Block", "Vikaspuri B Block", "Vikaspuri C Block",
+      "Vikaspuri D Block", "Uttam Nagar West", "Hastsal"
+    ]
+  },
+
+  "110028": {
+    "city": "New Delhi",
+    "district": "Delhi",
+    "areas": [
+      "RK Puram Sector 1", "RK Puram Sector 3", "RK Puram Sector 4",
+      "RK Puram Sector 5", "RK Puram Sector 6", "RK Puram Sector 7",
+      "RK Puram Sector 8", "RK Puram Sector 12", "Munirka"
+    ]
+  },
+
+  "110029": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Shahpur Jat", "Siri Fort", "Yusuf Sarai", "Gulmohar Park",
+      "Panchsheel Park", "Sarvapriya Vihar"
+    ]
+  },
+
+  "110030": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Fatehpur Beri", "Aya Nagar", "Mandi Village",
+      "Mahipalpur Extension", "Rangpuri Pahari"
+    ]
+  },
+
+  "110031": {
+    "city": "Shahdara",
+    "district": "Delhi",
+    "areas": [
+      "Shahdara", "Mansarovar Park", "Nand Nagri", "Seelampur",
+      "New Seelampur", "Brahmpuri"
+    ]
+  },
+
+  "110032": {
+    "city": "East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Dilshad Garden", "Vivek Vihar Phase I", "Vivek Vihar Phase II",
+      "Karkardooma", "Jhilmil Colony"
+    ]
+  },
+
+  "110033": {
+    "city": "North West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Rohini Sector 3", "Rohini Sector 4", "Rohini Sector 5",
+      "Rohini Sector 6", "Rohini Sector 7", "Rohini Sector 11",
+      "Rohini Sector 13", "Rohini Sector 14", "Rohini Sector 15"
+    ]
+  },
+
+  "110034": {
+    "city": "North West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Pitampura", "Kohat Enclave", "Netaji Subhash Place",
+      "Shalimar Bagh Extension", "Maurya Enclave"
+    ]
+  },
+
+  "110035": {
+    "city": "North West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Shalimar Bagh", "Shalimar Bagh Block AP", "Shalimar Bagh Block BK",
+      "Azadpur", "Ashok Vihar Phase III"
+    ]
+  },
+
+  "110036": {
+    "city": "North West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Badli", "Samaypur", "Dharampur", "Adarsh Nagar Extension"
+    ]
+  },
+
+  "110037": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Kapashera", "Mahipalpur", "Rangpuri", "Vasant Kunj Sector B"
+    ]
+  },
+
+  "110039": {
+    "city": "East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Shakarpur", "Laxmi Nagar", "Nirman Vihar", "Preet Vihar"
+    ]
+  },
+
+  "110040": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Nangloi", "Nangloi Jat", "Nilothi Extension", "Paschim Vihar A Block",
+      "Paschim Vihar B Block"
+    ]
+  },
+
+  "110041": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Uttam Nagar", "Bindapur", "Bindapur Extension",
+      "Nangal Abbaspur", "Sewak Park"
+    ]
+  },
+
+  "110042": {
+    "city": "North West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Adarsh Nagar", "Azadpur", "Jahangirpuri A Block",
+      "Jahangirpuri B Block", "Jahangirpuri C Block"
+    ]
+  },
+
+  "110043": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Dwarka Sector 6", "Dwarka Sector 7", "Dwarka Sector 8",
+      "Dwarka Sector 9", "Dwarka Sector 10"
+    ]
+  },
+
+  "110044": {
+    "city": "South East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Badarpur", "Sarita Vihar", "Mohan Estate",
+      "Madanpur Khadar", "Jaitpur"
+    ]
+  },
+
+  "110045": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Dwarka Sector 11", "Dwarka Sector 12", "Dwarka Sector 13",
+      "Dwarka Sector 14", "Dwarka Sector 15"
+    ]
+  },
+
+  "110046": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Dwarka Sector 16", "Dwarka Sector 17", "Dwarka Sector 18",
+      "Dwarka Sector 19", "Dwarka Sector 20", "Dwarka Sector 21",
+      "Dwarka Sector 22", "Dwarka Sector 23"
+    ]
+  },
+
+  "110047": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Palam", "Palam Village", "Palam Extension",
+      "Raj Nagar Part I", "Raj Nagar Part II"
+    ]
+  },
+
+  "110048": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Greater Kailash I", "Greater Kailash II", "Greater Kailash III",
+      "Greater Kailash IV", "Chirag Delhi"
+    ]
+  },
+
+  "110049": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Chhatarpur", "Satbari", "Ghitorni", "Chattarpur Enclave Phase I",
+      "Chattarpur Enclave Phase II"
+    ]
+  },
+
+  "110051": {
+    "city": "East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Preet Vihar", "Anand Vihar", "Karkardooma", "Patparganj Industrial Area",
+      "Surajmal Vihar"
+    ]
+  },
+
+  "110052": {
+    "city": "North West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Wazirpur Block A", "Wazirpur Block B", "Wazirpur Industrial Area",
+      "Tri Nagar", "Ashok Vihar Phase II"
+    ]
+  },
+
+  "110053": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Punjabi Bagh East", "Punjabi Bagh West", "Madipur",
+      "Shivaji Park", "Tagore Garden Extension"
+    ]
+  },
+
+  "110054": {
+    "city": "North Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Shakti Nagar", "Rana Pratap Bagh", "Sant Nagar",
+      "Model Town I", "Model Town II", "Model Town III"
+    ]
+  },
+
+  "110055": {
+    "city": "Central Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Paharganj", "Tooti Chowk", "Gole Market",
+      "Ranjit Nagar Extension", "Prem Nagar"
+    ]
+  },
+
+  "110056": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Rajouri Garden", "Rajouri Garden Extension", "Tagore Garden",
+      "Tagore Garden Extension", "Subhash Nagar"
+    ]
+  },
+
+  "110057": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Safdarjung Enclave", "Gulmohar Park", "Yusuf Sarai",
+      "Hauz Rani", "Adhchini"
+    ]
+  },
+
+  "110058": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Vikaspuri", "C-4 Block", "D-Block Vikaspuri",
+      "Mohan Garden", "Uttam Nagar West"
+    ]
+  },
+
+  "110059": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Uttam Nagar", "Dwarka Mor", "Nawada",
+      "Kakrola", "Roshanpura"
+    ]
+  },
+
+  "110060": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Tilak Nagar", "Vikas Nagar", "Khyala",
+      "Chand Nagar", "Jaidev Park"
+    ]
+  },
+
+  "110062": {
+    "city": "South Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Sangam Vihar", "Deoli", "Devli Village",
+      "Ambedkar Nagar", "Sant Nagar Burari"
+    ]
+  },
+
+  "110063": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Hastsal", "Uttam Nagar East", "Jwala Puri",
+      "Nilothi", "Janakpuri C-2D"
+    ]
+  },
+
+  "110064": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Punjabi Bagh", "Punjabi Bagh Club Road",
+      "West Punjabi Bagh", "Fateh Nagar"
+    ]
+  },
+
+  "110065": {
+    "city": "North Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Mukherjee Nagar", "GTB Nagar", "Jawahar Nagar",
+      "Kamla Nagar", "Shakti Nagar Extension"
+    ]
+  },
+
+  "110067": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Vasant Gaon", "Hauz Khas Village",
+      "Arjun Nagar", "Munirka Village"
+    ]
+  },
+
+  "110070": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Vasant Kunj Sector A", "Vasant Kunj Sector B",
+      "Vasant Kunj Pocket D", "DDA Pocket B"
+    ]
+  },
+
+  "110071": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Bijwasan", "Bharsana", "Dichaon Kalan",
+      "Mitraon", "Pochanpur"
+    ]
+  },
+
+  "110075": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Dwarka Sector 10", "Dwarka Sector 11B", "Dwarka Sector 12A",
+      "Dwarka Sector 25", "Dwarka Sector 26", "Dwarka Sector 27"
+    ]
+  },
+
+  "110076": {
+    "city": "South East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Zakir Nagar", "Abul Fazal Part I", "Abul Fazal Part II",
+      "Shaheen Bagh", "Ghaffar Manzil Colony"
+    ]
+  },
+
+  "110078": {
+    "city": "South West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Nilothi", "Raghubir Nagar", "Khayala",
+      "Vikas Puri J Block", "Surajmal Vihar"
+    ]
+  },
+
+  "110081": {
+    "city": "West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Matiala", "Goyla Village", "Tajpur Kalan",
+      "Dichaon Khurd", "Dhulsiras"
+    ]
+  },
+
+  "110082": {
+    "city": "North West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Sultanpur Majra", "Sultan Puri A Block",
+      "Sultan Puri B Block", "Mangol Puri"
+    ]
+  },
+
+  "110083": {
+    "city": "North West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Khera Kalan", "Pooth Kalan", "Alipur",
+      "Libaspur", "Hamidpur"
+    ]
+  },
+
+  "110085": {
+    "city": "North Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Bawana", "Siraspur", "Bankner",
+      "Barwala", "Pooth Khurd"
+    ]
+  },
+
+  "110086": {
+    "city": "North West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Budh Vihar Phase I", "Budh Vihar Phase II",
+      "Rohini Sector 16", "Rohini Sector 17", "Rohini Sector 18"
+    ]
+  },
+
+  "110087": {
+    "city": "North West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Rohini Sector 24", "Rohini Sector 25", "Rohini Sector 26",
+      "Rohini Sector 27", "Rohini Sector 28", "Rohini Sector 29"
+    ]
+  },
+
+  "110088": {
+    "city": "North West Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Mongolpuri Block A", "Mongolpuri Block B", "Mongolpuri Block C",
+      "Sultanpuri", "Mangolpuri Phase I"
+    ]
+  },
+
+  "110089": {
+    "city": "North Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Samaypur Badli", "Bhalswa Dairy",
+      "Jharoda Majra Burari", "Palla"
+    ]
+  },
+
+  "110091": {
+    "city": "East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Mayur Vihar Phase III", "Kondli", "Gazipur Village",
+      "Gharoli", "Patparganj Village"
+    ]
+  },
+
+  "110092": {
+    "city": "East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Pandav Nagar", "Mayur Vihar Phase I",
+      "Trilokpuri Block 1", "Trilokpuri Block 20",
+      "Kondli Gharoli"
+    ]
+  },
+
+  "110093": {
+    "city": "East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Mandawali", "Mayur Vihar Phase II",
+      "Vasundhara Enclave", "Chilla Saroda Bangar"
+    ]
+  },
+
+  "110094": {
+    "city": "East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Anand Vihar", "Karkardooma", "Dilshad Colony Part I",
+      "Dilshad Colony Part II", "New Ashok Nagar"
+    ]
+  },
+
+  "110095": {
+    "city": "East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Patparganj", "IP Extension", "Vasundhara Enclave",
+      "Mayur Vihar Phase I Extension", "Khichripur"
+    ]
+  },
+
+  "110096": {
+    "city": "East Delhi",
+    "district": "Delhi",
+    "areas": [
+      "Mayur Vihar Pocket I", "Mayur Vihar Pocket II",
+      "Ghazipur", "Ghazipur Dairy Farm", "Rajiv Gandhi Nagar"
+    ]
+  },
+
+  "201001": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Ghaziabad GPO", "Navyug Market", "Gandhi Nagar",
+      "Lal Kuan", "Old Bus Stand Area", "Arya Nagar", "Ashok Nagar"
+    ]
+  },
+
+  "201002": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Sahibabad", "Mohan Nagar", "Loni Road",
+      "ALTTC Campus", "Site IV Sahibabad"
+    ]
+  },
+
+  "201003": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Kaushambi", "Bhopura", "Surya Nagar",
+      "Ek Minar Masjid Area", "Vaibhav Khand Indirapuram"
+    ]
+  },
+
+  "201004": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Vaishali Sector 1", "Vaishali Sector 2", "Vaishali Sector 3",
+      "Vaishali Sector 4", "Vaishali Sector 5", "Vaishali Sector 6"
+    ]
+  },
+
+  "201005": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Indirapuram", "Ahinsa Khand I", "Ahinsa Khand II",
+      "Gyan Khand I", "Gyan Khand II", "Gyan Khand III",
+      "Niti Khand I", "Niti Khand II", "Niti Khand III",
+      "Abhay Khand I", "Abhay Khand II"
+    ]
+  },
+
+  "201006": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Raj Nagar", "Raj Nagar Extension", "Raj Nagar Sector 1",
+      "Raj Nagar Sector 2", "Pratap Vihar"
+    ]
+  },
+
+  "201007": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Sanjay Nagar Sector 1", "Sanjay Nagar Sector 2",
+      "Shastri Nagar", "Vijay Nagar", "Shyam Nagar"
+    ]
+  },
+
+  "201009": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Crossing Republik", "Ahinsa Khand I", "Ahinsa Khand II",
+      "Crossing Republik Phase I", "Crossing Republik Phase II"
+    ]
+  },
+
+  "201010": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Dasna", "Bharat Nagar", "Lal Kuan Extension",
+      "Vijay Nagar Dasna"
+    ]
+  },
+
+  "201011": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Chander Nagar", "Govindpuram", "Sunder Vihar",
+      "Brij Vihar"
+    ]
+  },
+
+  "201012": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Hindon Air Force Station", "Hindon Village",
+      "Civil Aerodrome Area"
+    ]
+  },
+
+  "201013": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Loni Town", "Loni Block A", "Loni Block B",
+      "Partap Vihar Loni", "Bhovapur"
+    ]
+  },
+
+  "201014": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Muradnagar Town", "Muradnagar Industrial Area",
+      "Chipiyana Buzurg"
+    ]
+  },
+
+  "201015": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Hapur Road Area", "Wave City", "NH-58 Area",
+      "Pilkhuwa Road Area"
+    ]
+  },
+
+  "201016": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Tronica City", "Loni Extension", "Masuri Area"
+    ]
+  },
+
+  "201017": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Bhopura", "Char Murti Bhopura", "Ankur Vihar",
+      "Bhopura Industrial Area"
+    ]
+  },
+
+  "201018": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Pratap Vihar", "Govindpuram Extension", "Guldhar"
+    ]
+  },
+
+  "201019": {
+    "city": "Ghaziabad",
+    "district": "Ghaziabad",
+    "areas": [
+      "Sahibabad Industrial Area", "Shyam Park Extension",
+      "Sahibabad Site IV", "Wave City Phase II"
+    ]
+  },
+
+  "201301": {
+    "city": "Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Noida Sector 1", "Noida Sector 2", "Noida Sector 3",
+      "Noida Sector 6", "Noida Sector 7", "Noida Sector 8",
+      "Noida Sector 12", "Noida Sector 15", "Noida Sector 16",
+      "Noida Sector 17", "Noida Sector 22", "Noida Sector 24",
+      "Noida Sector 25", "Noida Sector 27"
+    ]
+  },
+
+  "201302": {
+    "city": "Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Adhyatmic Nagar", "Noida Sector 19", "Noida Sector 20",
+      "Noida Sector 21", "Noida Sector 28", "Noida Sector 29",
+      "Noida Sector 32", "Noida Sector 36", "Noida Sector 38A", "Noida Sector 38B"
+    ]
+  },
+
+  "201303": {
+    "city": "Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Noida Sector 30", "Noida Sector 37", "Noida Sector 39",
+      "Noida Sector 40", "Noida Sector 41", "Noida Sector 45",
+      "Noida Sector 46", "Noida Sector 47", "Noida Sector 48",
+      "Noida Sector 49", "Noida Sector 50", "Noida Sector 53", "Noida Sector 55"
+    ]
+  },
+
+  "201304": {
+    "city": "Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Noida Sector 34", "Noida Sector 55", "Noida Sector 56",
+      "Noida Sector 57", "Noida Sector 58", "Noida Sector 59",
+      "Noida Sector 60", "Noida Sector 61", "Noida Sector 62",
+      "Noida Sector 63", "Noida Sector 63A", "Noida Sector 64",
+      "Noida Sector 65", "Noida Sector 66", "Noida Sector 67"
+    ]
+  },
+
+  "201305": {
+    "city": "Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Noida NEPZ", "Hosiery Complex", "Noida Sector 80",
+      "Noida Sector 81", "Noida Sector 82", "Noida Sector 83",
+      "Noida Sector 84", "Noida Sector 85", "Noida Sector 135",
+      "Noida Sector 136", "Noida Sector 137"
+    ]
+  },
+
+  "201306": {
+    "city": "Greater Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Surajpur", "Bisrakh", "Kulesra", "Techzone 1",
+      "Techzone 2", "Techzone 3", "Ecotech I", "Ecotech II",
+      "Ecotech III", "Ecotech VI", "Industrial Area Site B"
+    ]
+  },
+
+  "201307": {
+    "city": "Greater Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Knowledge Park V", "Chhajarsi", "Sarfabad",
+      "Noida Sector 34 Extension", "Chipyana Khurd"
+    ]
+  },
+
+  "201308": {
+    "city": "Greater Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Gamma I", "Gamma II", "Gamma III",
+      "Delta I", "Delta II", "Delta III", "Delta IV",
+      "Tugalpur", "Pari Chowk Area"
+    ]
+  },
+
+  "201309": {
+    "city": "Greater Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Knowledge Park I", "Knowledge Park II", "Knowledge Park III",
+      "Noida Sector 62 Extension", "Chhajarsi Village"
+    ]
+  },
+
+  "201310": {
+    "city": "Greater Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Alpha I", "Alpha II", "Alpha III",
+      "Beta I", "Beta II", "Omicron I", "Omicron II", "Omicron III",
+      "Mu I", "Mu II", "Chi I", "Chi II", "Chi III",
+      "Pi I", "Pi II", "Phi I", "Sigma I", "Sigma II", "Sigma III",
+      "Zeta I", "Zeta II", "Pari Chowk", "Jaypee Greens"
+    ]
+  },
+
+  "201316": {
+    "city": "Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Noida Sector 100", "Noida Sector 104", "Noida Sector 105",
+      "Noida Sector 108", "Noida Sector 110", "Noida Sector 118", "Noida Sector 122"
+    ]
+  },
+
+  "201317": {
+    "city": "Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Noida Sector 119", "Noida Sector 120", "Noida Sector 128",
+      "Noida Sector 129", "Noida Sector 130", "Noida Sector 131",
+      "Noida Sector 132", "Noida Sector 133", "Noida Sector 134"
+    ]
+  },
+
+  "201318": {
+    "city": "Greater Noida West",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Greater Noida West Sector 1", "Greater Noida West Sector 2",
+      "Greater Noida West Sector 3", "Greater Noida West Sector 4",
+      "Greater Noida West Sector 10", "Greater Noida West Sector 16",
+      "Greater Noida West Sector 16B", "Techzone IV",
+      "Gaur Chowk Area", "Ecotech XII", "Wave City GNW"
+    ]
+  },
+
+  "203207": {
+    "city": "Greater Noida",
+    "district": "Gautam Buddh Nagar",
+    "areas": [
+      "Dadri", "Achheja", "Sultanpur",
+      "Greater Noida West Sector 10", "Greater Noida West Sector 12"
+    ]
+  },
+
+  "122001": {
+    "city": "Gurugram",
+    "district": "Gurugram",
+    "areas": [
+      "Gurugram City Centre", "Sadar Bazar Gurugram", "Old Gurugram",
+      "Dundahera", "Pace City I", "Pace City II", "Palam Vihar Extension"
+    ]
+  },
+
+  "122002": {
+    "city": "Gurugram",
+    "district": "Gurugram",
+    "areas": [
+      "DLF Phase 1", "DLF Phase 2", "Qutub Plaza",
+      "Ridgewood Estate", "DLF City Phase I", "DLF City Phase II"
+    ]
+  },
+
+  "122003": {
+    "city": "Gurugram",
+    "district": "Gurugram",
+    "areas": [
+      "DLF Phase 3", "DLF Phase 4", "DLF Phase 5",
+      "Nathupur Village", "DLF City Phase III", "DLF City Phase IV",
+      "DLF City Phase V"
+    ]
+  },
+
+  "122004": {
+    "city": "Gurugram",
+    "district": "Gurugram",
+    "areas": [
+      "Sushant Lok I", "Sushant Lok II", "Sushant Lok III",
+      "South City I", "South City II", "Ardee City"
+    ]
+  },
+
+  "122006": {
+    "city": "Gurugram",
+    "district": "Gurugram",
+    "areas": [
+      "Sector 5", "Sector 9", "Sector 10", "Sector 10A",
+      "Sector 14", "Sector 15 Part I", "Sector 15 Part II",
+      "Sector 17", "Sector 18", "Sector 21", "Sector 22", "Sector 22A"
+    ]
+  },
+
+  "122007": {
+    "city": "Gurugram",
+    "district": "Gurugram",
+    "areas": [
+      "Sector 23", "Sector 23A", "Sector 24", "Sector 25",
+      "Sector 26", "Sector 27", "Sector 28", "Sector 29", "IIFCO Chowk",
+      "MG Road", "Sector 30", "Sector 31", "Sector 32"
+    ]
+  },
+
+  "122008": {
+    "city": "Gurugram",
+    "district": "Gurugram",
+    "areas": [
+      "Palam Vihar", "New Palam Vihar Phase 1", "New Palam Vihar Phase 2",
+      "New Palam Vihar Phase 3", "Sector 2 Extension", "Sector 23B"
+    ]
+  },
+
+  "122009": {
+    "city": "Gurugram",
+    "district": "Gurugram",
+    "areas": [
+      "Manesar IMT", "Sector 1 IMT", "Sector 5 IMT",
+      "Sector 7 IMT", "Kasan Village", "Dhanwapur"
+    ]
+  },
+
+  "122015": {
+    "city": "Gurugram",
+    "district": "Gurugram",
+    "areas": [
+      "Golf Course Road", "Sector 42", "Sector 43",
+      "Sector 53", "Sector 54", "Sector 55", "Sector 56"
+    ]
+  },
+
+  "122016": {
+    "city": "Gurugram",
+    "district": "Gurugram",
+    "areas": [
+      "Nirvana Country", "Sector 50", "Sector 51",
+      "Galleria Market Area", "Sector 57", "Sector 58"
+    ]
+  },
+
+  "122017": {
+    "city": "Gurugram",
+    "district": "Gurugram",
+    "areas": [
+      "Sector 65", "Sector 66", "Sector 67",
+      "Sector 68", "Sector 69", "Sector 70",
+      "Sector 83", "Sector 84", "Sector 85", "Sector 86", "Sector 89"
+    ]
+  },
+
+  "122018": {
+    "city": "Gurugram",
+    "district": "Gurugram",
+    "areas": [
+      "Sector 90", "Sector 92", "Sector 93",
+      "Sector 95", "Sector 97", "Sector 99",
+      "Dwarka Expressway Corridor", "NH-48 Area"
+    ]
+  },
+
+  "121001": {
+    "city": "Faridabad",
+    "district": "Faridabad",
+    "areas": [
+      "Old Faridabad", "NIT Colony", "Sector 8",
+      "Sector 9", "Sector 10", "Sector 23", "Sector 23A",
+      "Sector 24", "Sector 25", "Model Town"
+    ]
+  },
+
+  "121002": {
+    "city": "Faridabad",
+    "district": "Faridabad",
+    "areas": [
+      "NIT Faridabad", "Sector 12", "Sector 14",
+      "Sector 15", "Sector 16", "Sector 17"
+    ]
+  },
+
+  "121003": {
+    "city": "Faridabad",
+    "district": "Faridabad",
+    "areas": [
+      "Sector 3", "Sector 4", "Sector 5",
+      "Sector 6", "Sector 7", "Sector 11",
+      "Lala Lajpat Rai Colony", "HUDA Sector 3"
+    ]
+  },
+
+  "121004": {
+    "city": "Faridabad",
+    "district": "Faridabad",
+    "areas": [
+      "Sector 17", "Sector 19", "Sector 20",
+      "Sector 21", "Sector 22", "Sector 27", "Sector 28",
+      "Sector 29", "Sector 30", "Sector 31"
+    ]
+  },
+
+  "121005": {
+    "city": "Faridabad",
+    "district": "Faridabad",
+    "areas": [
+      "Ballabhgarh", "Sector 62", "Sector 64",
+      "Sector 65", "Mohan Nagar Ballabhgarh"
+    ]
+  },
+
+  "121006": {
+    "city": "Faridabad",
+    "district": "Faridabad",
+    "areas": [
+      "NHPC Colony", "Neharpar", "Sector 37",
+      "Sector 41", "Crown Interiorz Mall Area"
+    ]
+  },
+
+  "121007": {
+    "city": "Faridabad",
+    "district": "Faridabad",
+    "areas": [
+      "Sector 45", "Sector 46", "Sector 47",
+      "Sector 48", "Sector 49", "Sector 56",
+      "Sector 57", "Greater Faridabad"
+    ]
+  },
+
+  "121008": {
+    "city": "Faridabad",
+    "district": "Faridabad",
+    "areas": [
+      "Suraj Kund", "Sector 35", "Sector 37D",
+      "Anangpur Village", "Pali Road Area"
+    ]
+  },
+
+  "121009": {
+    "city": "Faridabad",
+    "district": "Faridabad",
+    "areas": [
+      "Tigaon", "Sector 86", "Sector 85",
+      "Sector 88", "Sector 89"
+    ]
+  },
+
+  "131001": {
+    "city": "Sonipat",
+    "district": "Sonipat",
+    "areas": [
+      "Sonipat City", "Subhash Chowk", "New Anaj Mandi",
+      "Sector 14 Sonipat", "Sector 23 Sonipat", "Old Bus Stand Area",
+      "Janta Colony"
+    ]
+  },
+
+  "131021": {
+    "city": "Sonipat",
+    "district": "Sonipat",
+    "areas": [
+      "Kundli Industrial Area", "Kundli Sector 3",
+      "Kundli Sector 4", "Rajiv Colony Kundli"
+    ]
+  },
+
+  "131029": {
+    "city": "Sonipat",
+    "district": "Sonipat",
+    "areas": [
+      "Murthal", "GT Road Murthal", "Murthal Industrial Area"
+    ]
+  },
+
+  "131030": {
+    "city": "Sonipat",
+    "district": "Sonipat",
+    "areas": [
+      "Gannaur", "Gannaur Town", "Nangal Kalan", "Kurthala"
+    ]
+  },
+
+  "124507": {
+    "city": "Bahadurgarh",
+    "district": "Jhajjar",
+    "areas": [
+      "Bahadurgarh Town", "Old Bahadurgarh", "New Grain Market",
+      "Sector 1 Bahadurgarh", "Sector 2 Bahadurgarh", "Budhpur",
+      "Tikri Kalan Border Area"
+    ]
+  },
+
+  "124501": {
+    "city": "Jhajjar",
+    "district": "Jhajjar",
+    "areas": [
+      "Jhajjar Town", "Machhrauli Road", "Sankhol", "Ghasera"
+    ]
+  },
+
+  "131023": {
+    "city": "Sonipat",
+    "district": "Sonipat",
+    "areas": [
+      "Gohana Road", "RAI Industrial Estate", "Sector 1 RAI",
+      "Sector 2 RAI", "Sector 3 RAI"
+    ]
+  }
+}
