@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -130,10 +135,10 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-# Fill these directly for real email delivery.
-EMAIL_HOST_USER = 'medsparkyvihaan@gmail.com'
-EMAIL_HOST_PASSWORD = 'qzmlyswgjethezcb'
-DEFAULT_FROM_EMAIL = 'medsparkyvihaan@gmail.com'
+# Load email credentials from .env file
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
 
 # Outbreak alert configuration
 DENGUE_ALERT_THRESHOLD = 10

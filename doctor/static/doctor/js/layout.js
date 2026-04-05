@@ -53,7 +53,18 @@
     const currentPath = window.location.pathname;
     document.querySelectorAll(".nav-item[data-path]").forEach(function (item) {
       const path = item.getAttribute("data-path");
-      if (path && currentPath.startsWith(path)) {
+      if (!path) {
+        return;
+      }
+
+      if (path === "/") {
+        if (currentPath === "/") {
+          item.classList.add("active");
+        }
+        return;
+      }
+
+      if (currentPath.startsWith(path)) {
         item.classList.add("active");
       }
     });
